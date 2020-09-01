@@ -167,23 +167,8 @@ healthcheck(callback) {
           console.log('Error:\n\n' + JSON.stringify(error));
           callback(error);
       }else{
-          if(results.body){
-              var returnResults = [];
-              const obj = JSON.parse(results.body);
-              for(var i = 0; i < obj.result.length;  i++){
-                var tempResult = {
-                    change_ticket_number: obj.result[i].number,
-                    active: obj.result[i].active,
-                    priority: obj.result[i].priority,
-                    description: obj.result[i].description,
-                    work_start: obj.result[i].work_start,
-                    work_end: obj.result[i].work_end,
-                    change_ticket_key: obj.result[i].sys_id
-                }
-                returnResults.push(tempResult);
-              }
-              callback(returnResults);
-          }
+          console.log('Success\n\n' + JSON.stringify(results));
+          callback(results);
       }
      });
 
@@ -204,19 +189,6 @@ healthcheck(callback) {
           console.log('Error:\n\n' + JSON.stringify(error));
       }else{
           console.log('Success\n\n' + JSON.stringify(results));
-          if(results.body){
-              const obj = JSON.parse(results.body);
-                var tempResult = {
-                    change_ticket_number: obj.result.number,
-                    active: obj.result.active,
-                    priority: obj.result.priority,
-                    description: obj.result.description,
-                    work_start: obj.result.work_start,
-                    work_end: obj.result.work_end,
-                    change_ticket_key: obj.result.sys_id
-                }
-              callback(tempResult);
-          }
       }
    });
   }
