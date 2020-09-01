@@ -104,7 +104,6 @@ healthcheck(callback) {
        }
 
    } else {
-    console.log('\n\n\n\n\n Didnt get an error \n\n\n\n\n\n');
        this.emitOnline();
        log.debug('Good response from healthcheck id: ' + this.id);
        if(callback){
